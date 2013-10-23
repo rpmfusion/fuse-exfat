@@ -1,7 +1,7 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
 Version:        1.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv3+
 Group:          System Environment/Base
 Source0:        http://exfat.googlecode.com/files/fuse-exfat-%{version}.tar.gz
@@ -22,18 +22,21 @@ for SDXC memory cards.
 scons CFLAGS="%{optflags}"
 
 %install
-scons install DESTDIR=%{buildroot}%{_sbindir}
+scons install DESTDIR=%{buildroot}/sbin
 mkdir -p %{buildroot}%{_mandir}/man8/
 cp -a fuse/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat-fuse.8
 ln -s %{_mandir}/man8/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat.8
 
 %files
 %doc COPYING
-%{_sbindir}/mount.exfat-fuse
-%{_sbindir}/mount.exfat
+/sbin/mount.exfat-fuse
+/sbin/mount.exfat
 %{_mandir}/man8/*
 
 %changelog
+* Wed Oct 23 2013 TingPing <tingping@tingping.se> - 1.0.1-2
+- Fix path on RHEL
+
 * Sun Mar 17 2013 TingPing <tingping@tingping.se> - 1.0.1-1
 - Initial package
 
