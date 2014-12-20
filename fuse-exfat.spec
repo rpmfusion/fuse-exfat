@@ -1,10 +1,10 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
-Version:        1.0.1
-Release:        2%{?dist}
-License:        GPLv3+
+Version:        1.1.0
+Release:        1%{?dist}
+License:        GPLv2+
 Group:          System Environment/Base
-Source0:        http://exfat.googlecode.com/files/fuse-exfat-%{version}.tar.gz
+Source0:        https://docs.google.com/uc?export=download&id=0B7CLI-REKbE3VTdaa0EzTkhYdU0#/%{name}-%{version}.tar.gz
 URL:            http://code.google.com/p/exfat/
 BuildRequires:  fuse-devel
 BuildRequires:  scons
@@ -34,6 +34,9 @@ ln -s %{_mandir}/man8/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat
 %{_mandir}/man8/*
 
 %changelog
+* Sat Dec 20 2014 TingPing <tingping@tingping.se> - 1.1.0-1
+- Update to 1.1.0
+
 * Sun Aug 31 2014 Sérgio Basto <sergio@serjux.com> - 1.0.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
 
