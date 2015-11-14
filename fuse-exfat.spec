@@ -1,13 +1,12 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
-Version:        1.1.0
+Version:        1.2.2
 Release:        1%{?dist}
 License:        GPLv2+
 Group:          System Environment/Base
-Source0:        https://docs.google.com/uc?export=download&id=0B7CLI-REKbE3VTdaa0EzTkhYdU0#/%{name}-%{version}.tar.gz
-URL:            http://code.google.com/p/exfat/
+Source0:        https://github.com/relan/exfat/releases/download/v%{version}/fuse-exfat-%{version}.tar.gz
+URL:            https://github.com/relan/exfat
 BuildRequires:  fuse-devel
-BuildRequires:  scons
 
 %description
 This driver is the first free exFAT file system implementation with write
@@ -19,13 +18,14 @@ for SDXC memory cards.
 %setup -q
 
 %build
-scons CFLAGS="%{optflags}"
+%configure
+
+make %{?_smp_mflags}
+
 
 %install
-scons install DESTDIR=%{buildroot}%{_sbindir}
-mkdir -p %{buildroot}%{_mandir}/man8/
-cp -a fuse/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat-fuse.8
-ln -s %{_mandir}/man8/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat.8
+make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
+
 
 %files
 %doc COPYING
@@ -34,6 +34,9 @@ ln -s %{_mandir}/man8/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat
 %{_mandir}/man8/*
 
 %changelog
+* Sat Nov 14 2015 Nicolas Chauvet <kwizart@gmail.com> - 1.2.2-1
+- Update to 1.2.2
+
 * Sat Dec 20 2014 TingPing <tingping@tingping.se> - 1.1.0-1
 - Update to 1.1.0
 
