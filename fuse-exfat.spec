@@ -1,6 +1,6 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
-Version:        1.2.3
+Version:        1.2.4
 Release:        1%{?dist}
 License:        GPLv2+
 Group:          System Environment/Base
@@ -24,10 +24,8 @@ make %{?_smp_mflags}
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
-mkdir -p %{buildroot}%{_mandir}/man8/
-cp -a fuse/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat-fuse.8
-ln -s %{_mandir}/man8/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat.8
+make install DESTDIR="$RPM_BUILD_ROOT"
+ln -s %{_mandir}/man8/mount.exfat-fuse.8.gz %{buildroot}%{_mandir}/man8/mount.exfat.8.gz
 
 
 %files
@@ -37,6 +35,9 @@ ln -s %{_mandir}/man8/mount.exfat-fuse.8 %{buildroot}%{_mandir}/man8/mount.exfat
 %{_mandir}/man8/*
 
 %changelog
+* Sun Jul 24 2016 Patrick Griffis <tingping@tingping.se> - 1.2.4-1
+- Update to 1.2.4
+
 * Wed Mar 30 2016 Orion Poplawski <orion@cora.nwra.com> - 1.2.3-1
 - Update to 1.2.3
 
