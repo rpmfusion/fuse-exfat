@@ -1,12 +1,12 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
-Version:        1.2.4
+Version:        1.2.7
 Release:        1%{?dist}
 License:        GPLv2+
 Group:          System Environment/Base
-Source0:        https://github.com/relan/exfat/releases/download/v%{version}/fuse-exfat-%{version}.tar.gz
+Source0:        https://github.com/relan/exfat/releases/download/v%{version}/%{name}-%{version}.tar.gz
 URL:            https://github.com/relan/exfat
-BuildRequires:  fuse-devel
+BuildRequires:  pkgconfig(fuse)
 
 %description
 This driver is the first free exFAT file system implementation with write
@@ -15,26 +15,36 @@ to replace FAT32 removing some of it's limitations. exFAT is a standard FS
 for SDXC memory cards.
 
 %prep
-%setup -q
+%autosetup
 
 %build
 %configure
-
-make %{?_smp_mflags}
-
+%make_build
 
 %install
-make install DESTDIR="$RPM_BUILD_ROOT"
+%make_install
 ln -s %{_mandir}/man8/mount.exfat-fuse.8.gz %{buildroot}%{_mandir}/man8/mount.exfat.8.gz
 
-
 %files
-%doc COPYING
+%doc ChangeLog
+%license COPYING
 %{_sbindir}/mount.exfat-fuse
 %{_sbindir}/mount.exfat
 %{_mandir}/man8/*
 
 %changelog
+* Wed Jun 21 2017 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-1
+- Update to 1.2.7
+
+* Sun Mar 19 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.2.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
+* Sun Jan 08 2017 Patrick Griffis <tingping@tingping.se> - 1.2.5-1
+- Update to 1.2.5
+
+* Tue Aug 16 2016 Patrick Griffis <tingping@tingping.se> - 1.2.4-2
+- Modernize spec file
+
 * Sun Jul 24 2016 Patrick Griffis <tingping@tingping.se> - 1.2.4-1
 - Update to 1.2.4
 
