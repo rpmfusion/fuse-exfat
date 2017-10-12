@@ -30,7 +30,7 @@ ln -s %{_sbindir}/mount.exfat-fuse %{buildroot}/sbin/mount.exfat
 %files
 %doc ChangeLog
 %license COPYING
-%{_bindir}/mount.exfat
+/sbin/mount.exfat
 %{_sbindir}/mount.exfat-fuse
 %{_sbindir}/mount.exfat
 %{_mandir}/man8/*
