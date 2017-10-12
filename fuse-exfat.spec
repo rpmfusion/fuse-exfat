@@ -1,7 +1,7 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
 Version:        1.2.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        GPLv2+
 Group:          System Environment/Base
 Source0:        https://github.com/relan/exfat/releases/download/v%{version}/%{name}-%{version}.tar.gz
@@ -24,15 +24,20 @@ for SDXC memory cards.
 %install
 %make_install
 ln -s %{_mandir}/man8/mount.exfat-fuse.8.gz %{buildroot}%{_mandir}/man8/mount.exfat.8.gz
+ln -s %{sbindir}/mount.exfat-fuse %{buildroot}%{_bindir}/mount.exfat
 
 %files
 %doc ChangeLog
 %license COPYING
+%{_bindir}/mount.exfat
 %{_sbindir}/mount.exfat-fuse
 %{_sbindir}/mount.exfat
 %{_mandir}/man8/*
 
 %changelog
+* Thu Oct 12 2017 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-2
+- Correct bindir linking
+
 * Wed Jun 21 2017 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-1
 - Update to 1.2.7
 
