@@ -24,7 +24,7 @@ for SDXC memory cards.
 %install
 %make_install
 ln -s %{_mandir}/man8/mount.exfat-fuse.8.gz %{buildroot}%{_mandir}/man8/mount.exfat.8.gz
-ln -s %{sbindir}/mount.exfat-fuse %{buildroot}%{_bindir}/mount.exfat
+ln -s %{_sbindir}/mount.exfat-fuse %{buildroot}%{_bindir}/mount.exfat
 
 %files
 %doc ChangeLog
