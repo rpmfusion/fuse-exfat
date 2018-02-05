@@ -1,6 +1,6 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
-Version:        1.2.7
+Version:        1.2.8
 Release:        1%{?dist}
 License:        GPLv2+
 Group:          System Environment/Base
@@ -33,6 +33,12 @@ ln -s %{_mandir}/man8/mount.exfat-fuse.8.gz %{buildroot}%{_mandir}/man8/mount.ex
 %{_mandir}/man8/*
 
 %changelog
+* Mon Feb 05 2018 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.8-1
+- Update to 1.2.8
+
+* Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 1.2.7-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
+
 * Wed Jun 21 2017 Vasiliy N. Glazov <vascom2@gmail.com> - 1.2.7-1
 - Update to 1.2.7
 
