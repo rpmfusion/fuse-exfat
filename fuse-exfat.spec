@@ -6,6 +6,8 @@ License:        GPLv2+
 Group:          System Environment/Base
 Source0:        https://github.com/relan/exfat/releases/download/v%{version}/%{name}-%{version}.tar.gz
 URL:            https://github.com/relan/exfat
+
+BuildRequires:  gcc
 BuildRequires:  pkgconfig(fuse)
 
 %description
