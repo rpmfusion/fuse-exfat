@@ -1,7 +1,7 @@
 Name:           fuse-exfat
 Summary:        Free exFAT file system implementation
-Version:        1.2.8
-Release:        3%{?dist}
+Version:        1.3.0
+Release:        1%{?dist}
 License:        GPLv2+
 Source0:        https://github.com/relan/exfat/releases/download/v%{version}/%{name}-%{version}.tar.gz
 URL:            https://github.com/relan/exfat
@@ -34,6 +34,9 @@ ln -s %{_mandir}/man8/mount.exfat-fuse.8.gz %{buildroot}%{_mandir}/man8/mount.ex
 %{_mandir}/man8/*
 
 %changelog
+* Tue Sep 18 2018 Vasiliy N. Glazov <vascom2@gmail.com> - 1.3.0-1
+- Update to 1.3.0
+
 * Thu Jul 26 2018 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.2.8-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
